@@ -1,26 +1,40 @@
 luasql = require "luasql.mysql"
-env = luasql.mysql(); --创建环境对象
-conn = env:connect("test", "root", "123456", "localhost", 3306);
-conn:execute"SET NAMES UTF8"
-print(env, conn);
---
-status, errorString = conn:execute([[CREATE TABLE sample2 (id INTEGER, name TEXT)]]);
-print(status, errorString);
---
---status, errorString = conn:execute([[INSERT INTO sample2 values('12', 'tony')]]);
---print(status, errorString);
---
---cursor, errorString = conn:execute("select * from sample2");
---print(cursor, errorString);
---
---print(cursor:numrows());
---
---row = cursor:fetch({}, "a");
---while row do
---   print(string.format("Id: %s, Name: %s", row.id, row.name));
---      row = cursor:fetch(row, "a");
---      end
---
---      cursor:close();
---      conn:close();
---      env:close();
+
+--创建环境对象
+env = luasql.mysql()
+
+--连接数据库
+conn = env:connect("test", "root", "123456", "127.0.0.1", 3306)
+
+--设置数据库的编码格式
+conn:execute "SET NAMES UTF8"
+
+--执行数据库操作
+--cur = conn:execute("select * from user")
+cur = conn:execute("show columns from user")
+
+row = cur:fetch({},"a")
+
+--mysql> show columns from user;
+--+-------+-------------+------+-----+---------+-------+
+--| Field | Type        | Null | Key | Default | Extra |
+--+-------+-------------+------+-----+---------+-------+
+--| name  | varchar(20) | YES  |     | NULL    |       |
+--| age   | int         | YES  |     | NULL    |       |
+--+-------+-------------+------+-----+---------+-------+
+
+
+--文件对象的创建
+file = io.open("role.dat","w+");
+
+while row do
+    --var = string.format("%s %s\n", row.age, row.name)
+    var = string.format("%s %s\n", row.Field, row.Type)
+
+    print(var)
+
+    file:write(var)
+
+    row = cur:fetch(row,"a")
+end
+

@@ -28,11 +28,17 @@ print("\n\n\n\n\n\n");
 -- @param
 ----------------------------------------------------------------------------------------
 --> 库名
-var_mysql_database = "测试库"
-var_mysql_ip = "127.0.0.1";
+--var_mysql_database = "测试库"
+--var_mysql_ip = "127.0.0.1";
+--var_mysql_port = 3306;
+--var_mysql_user_name = "root";
+--var_mysql_user_pass = "123456";
+
+var_mysql_database = "test_cloud_shop"
+var_mysql_ip = "172.16.0.42";
 var_mysql_port = 3306;
 var_mysql_user_name = "root";
-var_mysql_user_pass = "123456";
+var_mysql_user_pass = "test123456";
 
 --> 表集合
 var_list_tables = nil;
@@ -71,6 +77,7 @@ conn:execute("SET NAMES UTF8");
 
 ----------------------------------------------------------------------------------------
 -- @out tables
+-- 输出表信息，show tables获取全部表，for循环遍历获取表版本、字段、索引信息
 ----------------------------------------------------------------------------------------
 var_list_tables = conn:execute("SHOW TABLES");
 var_list_temp = var_list_tables:fetch({}, "a");

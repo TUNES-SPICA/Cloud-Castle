@@ -84,7 +84,7 @@ var_list_temp = var_list_tables:fetch({}, "a");
 while var_list_temp do
     var_string_thisTable = string.format("%s", var_list_temp["Tables_in_" .. var_mysql_database]);
     print("### " .. var_string_thisTable)
-
+    print("\n")
     -- 表 - 版本信息
     var_map_table_version = conn:execute("SHOW TABLE STATUS LIKE '" .. var_string_thisTable .. "'");
     var_list_temp_tableVersion = var_map_table_version:fetch({}, "a");
@@ -120,6 +120,7 @@ while var_list_temp do
     --file:write(var_string_thisTable)
 
     var_list_temp = var_list_tables:fetch(var_list_temp, "a")
+    print("\n\n")
 end
 ----------------------------------------------------------------------------------------
 

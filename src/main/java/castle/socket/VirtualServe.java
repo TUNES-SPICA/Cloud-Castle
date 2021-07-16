@@ -74,7 +74,7 @@ public class VirtualServe extends Thread {
 
     public void buildHttpCli() throws IOException {
         HttpServer server = HttpServer.create(new InetSocketAddress(8001), 0);
-        server.createContext("/", new TestHandler());
+        server.createContext("/test", new TestHandler());
         server.start();
     }
 

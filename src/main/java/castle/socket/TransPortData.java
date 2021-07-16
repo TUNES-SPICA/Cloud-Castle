@@ -27,10 +27,9 @@ public class TransPortData extends Thread {
 
     @Override
     public void run() {
-        try {
+        try (InputStream in = getDataSocket.getInputStream();
+             OutputStream out = putDataSocket.getOutputStream()) {
             while (true) {
-                InputStream in = getDataSocket.getInputStream();
-                OutputStream out = putDataSocket.getOutputStream();
                 //读入数据
                 byte[] data = new byte[1024];
                 int readLen = in.read(data);
@@ -42,17 +41,6 @@ public class TransPortData extends Thread {
             }
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            try {
-                if (putDataSocket != null) {
-                    putDataSocket.close();
-                }
-                if (getDataSocket != null) {
-                    getDataSocket.close();
-                }
-            } catch (Exception exx) {
-                exx.printStackTrace();
-            }
         }
     }
 

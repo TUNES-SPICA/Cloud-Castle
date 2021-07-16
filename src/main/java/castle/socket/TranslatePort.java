@@ -29,13 +29,14 @@ public class TranslatePort extends Thread {
         ServerSocket serverSocket = new ServerSocket(localPort);
         System.out.println("localPort=" + localPort + ";remoteIp=" + remoteIp + ";remotePort=" + remotePort + ";启动本地监听端口" + localPort + "成功！");
         while (true) {
-            try (Socket clientSocket = serverSocket.accept();
-                 Socket remoteServerSocket = new Socket(remoteIp, remotePort)) {
+            try  {
+                Socket clientSocket = serverSocket.accept();
+                Socket remoteServerSocket = new Socket(remoteIp, remotePort);
                 //获取客户端连接
                 System.out.println("accept one client\ncreate remoteip and port success");
                 //启动数据转换
-                (new TransPortData(clientSocket, remoteServerSocket, "1")).start();
                 (new TransPortData(remoteServerSocket, clientSocket, "2")).start();
+                (new TransPortData(clientSocket, remoteServerSocket, "1")).start();
             } catch (Exception ex) {
                 ex.printStackTrace();
             }

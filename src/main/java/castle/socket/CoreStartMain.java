@@ -24,6 +24,6 @@ public class CoreStartMain {
         // 构建虚拟主机
         new VirtualServe().start();
         // 构建socket转发网络
-        new TranslatePort().start();
+//        new TranslatePort().start();
     }
 }

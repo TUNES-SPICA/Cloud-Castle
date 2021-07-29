@@ -1,17 +1,43 @@
-plugins {
-    id 'java'
-}
-
 group 'org.example'
 version '1.0-SNAPSHOT'
+apply plugin: 'java'
+apply plugin: 'scala'
+apply plugin: 'application'
 
+sourceSets {
+    main {
+        scala {
+            srcDirs = ['src/main/scala', 'src/main/java']
+        }
+        java {
+            srcDirs = []
+        }
+    }
+    test {
+        scala {
+            srcDirs = ['src/test/scala', 'src/test/java']
+        }
+        java {
+            srcDirs = []
+        }
+    }
+}
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    // https://mvnrepository.com/artifact/org.scala-lang/scala-library
+    implementation group: 'org.scala-lang', name: 'scala-library', version: '2.13.6'
+
+    // https://mvnrepository.com/artifact/org.scala-lang/scala-reflect
+    implementation group: 'org.scala-lang', name: 'scala-reflect', version: '2.13.6'
+
+    // https://mvnrepository.com/artifact/org.scala-lang/scala-compiler
+    implementation group: 'org.scala-lang', name: 'scala-compiler', version: '2.13.6'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
     compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.20'
     // https://mvnrepository.com/artifact/org.java-websocket/Java-WebSocket
     implementation group: 'org.java-websocket', name: 'Java-WebSocket', version: '1.5.2'
@@ -20,4 +46,8 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
 }

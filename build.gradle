@@ -27,20 +27,23 @@ repositories {
 }
 
 dependencies {
-    // https://mvnrepository.com/artifact/org.scala-lang/scala-library
+    // java scala混合支持
     implementation group: 'org.scala-lang', name: 'scala-library', version: '2.13.6'
-
-    // https://mvnrepository.com/artifact/org.scala-lang/scala-reflect
     implementation group: 'org.scala-lang', name: 'scala-reflect', version: '2.13.6'
-
-    // https://mvnrepository.com/artifact/org.scala-lang/scala-compiler
     implementation group: 'org.scala-lang', name: 'scala-compiler', version: '2.13.6'
+
+    // mina 网络通讯组件，高性能IO框架
+    implementation group: 'org.apache.mina', name: 'mina-core', version: '2.1.4'
+
+
+    // apache web socket支持
+    implementation group: 'org.java-websocket', name: 'Java-WebSocket', version: '1.5.2'
+
+    // lombok 组件支持
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.20'
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
-    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.20'
-    // https://mvnrepository.com/artifact/org.java-websocket/Java-WebSocket
-    implementation group: 'org.java-websocket', name: 'Java-WebSocket', version: '1.5.2'
 
 }
 

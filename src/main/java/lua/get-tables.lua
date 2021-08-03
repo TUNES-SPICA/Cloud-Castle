@@ -9,9 +9,7 @@ print("                         |~~|:|~~                       \\  \\:\\");
 print("                         |  |:|                          \\  \\:\\");
 print("                         |  |:|                           \\  \\:\\");
 print("                         |__|/                             \\__\\/");
-print("星麦云商©");
 print("author -> ran");
---print("create -> 2021-07-14 17:00:00");
 print("create -> " .. os.date("%c"));
 print("\n\n\n\n\n\n");
 

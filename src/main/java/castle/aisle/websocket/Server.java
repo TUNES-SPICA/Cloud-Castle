@@ -1,4 +1,4 @@
-package castle.p2p;
+package castle.aisle.websocket;
 
 
 import org.java_websocket.WebSocket;

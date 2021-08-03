@@ -1,4 +1,4 @@
-package castle.socket;
+package castle.demo.socket;
 
 import lombok.extern.slf4j.Slf4j;
 

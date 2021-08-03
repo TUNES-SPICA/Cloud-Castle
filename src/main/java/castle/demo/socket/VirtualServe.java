@@ -1,4 +1,4 @@
-package castle.socket;
+package castle.demo.socket;
 
 
 import com.sun.net.httpserver.HttpExchange;

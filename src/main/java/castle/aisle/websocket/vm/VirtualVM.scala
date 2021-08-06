@@ -16,7 +16,7 @@ class VirtualVM {
    * @param port 启动端口号
    */
   def webVM(port: Int): Unit = {
-    new Thread(() => buildHttpServer(port))
+    new Thread(() => buildHttpServer(port)).start()
   }
 
   /**
@@ -30,6 +30,8 @@ class VirtualVM {
       override def handle(exchange: HttpExchange): Unit = {
         val response = "<h1>Hello World</h1>"
         exchange.sendResponseHeaders(200, 0)
+        println(exchange.getRequestURI)
+        println(exchange.getRequestBody)
         val os = exchange.getResponseBody
         os.write(response.getBytes)
         os.close()

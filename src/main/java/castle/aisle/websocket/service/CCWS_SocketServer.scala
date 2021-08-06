@@ -69,6 +69,7 @@ class Method {
    */
   protected def buildResponse: String =
     "HTTP/1.1 200 OK\nDate: Sat, 31 Dec 2005 23:59:59 GMT\nContent-Type: text/html;charset=ISO-8859-1\nContent-Length: 122\n\n＜html＞\n＜head＞\n＜title＞Wrox Homepage＜/title＞\n＜/head＞\n＜body＞\n＜!-- body goes here --＞\n＜/body＞\n＜/html＞"
+//    "HTTP/1.1 200 O\nServer: Tengine\nDate: Sun, 06 May 2018 08:22:10 GMT\nContent-Type: application/json;charset=UTF-8\nContent-Length: 10\nConnection: close\nX-Powered-By: ring/1.0.0\ngsid: 010185222147152559493030300162313551811\nsc: 0.013\nAccess-Control-Allow-Origin: *\nAccess-Control-Allow-Methods: *\nAccess-Control-Allow-Headers: DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,key,x-biz,x-info,platinfo,encr,enginever,gzipped,poiid"
 
   /**
    * 读取 http 请求报文

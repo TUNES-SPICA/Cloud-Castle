@@ -13,7 +13,7 @@ class CCWS_SocketClient {
 
 
   def buildServer(): Unit = {
-    var socket: Socket = new Socket("127.0.0.1", 8080)
+    var socket: Socket = new Socket("127.0.0.1", 12300)
     var sc: Scanner = new Scanner(System.in)
     var b = true;
     while (true) {

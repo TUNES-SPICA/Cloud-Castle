@@ -18,9 +18,9 @@ object ClientStartMain {
     //    ws.send("s")
 
     starVM()
-    new VirtualServe().start()
-    new CCWS_SocketClient().buildServer()
+//    new VirtualServe().start()
     Thread.sleep(1000)
+    new CCWS_SocketClient().buildServer()
   }
 
   def starVM(): Unit = {

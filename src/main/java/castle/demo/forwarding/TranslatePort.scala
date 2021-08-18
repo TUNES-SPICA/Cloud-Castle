@@ -12,7 +12,7 @@ class TranslatePort {
   def buildCastle(): Unit = new Thread(() => {
     System.out.println(".....开始构架转发网关")
     buildCastle()
-    val args = Array[String]("8081", "127.0.0.1", "8001")
+    val args = Array[String]("12102", "127.0.0.1", "12300")
     //获取本地监听端口、远程IP和远程端口
     val localPort = args(0).trim.toInt
     val remoteIp = args(1).trim

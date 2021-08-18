@@ -9,18 +9,18 @@ import org.java_websocket.client.WebSocketClient
 object ClientStartMain {
 
   def main(args: Array[String]): Unit = {
-    //    new TranslatePort().buildCastle()
-    //
-    //    val ws: WebSocketClient = new CCWS_WebSocketClient().buildLinkWebSocket(CC_CoreConfig.websocket_client_websocket_host, CC_CoreConfig.websocket_client_websocket_port)
-    //    ws.connect()
-    //    println(ws.isOpen)
-    //    ws.onOpen(null)
-    //    ws.send("s")
-
     starVM()
+//    new TranslatePort().buildCastle()
+
+
+//    val ws: WebSocketClient = new CCWS_WebSocketClient().buildLinkWebSocket(CC_CoreConfig.websocket_client_websocket_host, CC_CoreConfig.websocket_client_websocket_port)
+//    println(ws.isOpen)
+//    ws.onOpen(null)
+//    ws.send("s")
+
 //    new VirtualServe().start()
-    Thread.sleep(1000)
-    new CCWS_SocketClient().buildServer()
+//    Thread.sleep(1000)
+//    new CCWS_SocketClient().buildServer()
   }
 
   def starVM(): Unit = {

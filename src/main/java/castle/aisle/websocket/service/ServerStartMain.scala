@@ -4,7 +4,9 @@ object ServerStartMain {
 
   def main(args: Array[String]): Unit = {
 
-    new CC_SocketServer().buildSocketServer(8080)
+    new CC_SocketServer()
+      .buildSocketServer()
+
   }
 
 }

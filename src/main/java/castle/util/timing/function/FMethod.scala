@@ -24,7 +24,7 @@ import java.util.UUID
     val id = UUID.randomUUID().toString;
     method(id)
     val l = System.currentTimeMillis() - timeStr
-    if (CC_CoreConfig.is_debug) println(s"case execution {id -> $id => $l}")
+    if (CC_CoreConfig.is_debug) println(s"case execution {id -> $id => $l ms}")
     l
   }
 

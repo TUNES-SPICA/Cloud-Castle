@@ -30,7 +30,6 @@ class CCWS_WebSocketClient {
     }
     ws.connect()
     if (ws.isOpen) throw new UnsupportedOperationException(s"ws://$host:$port 连接失败")
-    ws.send("hello ~")
     ws
   }
 

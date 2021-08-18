@@ -38,6 +38,7 @@ dependencies {
 
     // apache web socket支持
     implementation group: 'org.java-websocket', name: 'Java-WebSocket', version: '1.5.2'
+    implementation 'org.apache.httpcomponents:httpclient:4.5.13'
 
     // lombok 组件支持
     compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.20'

@@ -2,6 +2,7 @@ package castle.aisle.websocket.vm
 
 import com.sun.net.httpserver.{HttpExchange, HttpHandler, HttpServer}
 
+import java.io.{BufferedWriter, PrintWriter}
 import java.net.{InetSocketAddress, ServerSocket}
 
 /**
@@ -16,7 +17,17 @@ class VirtualVM {
    * @param port 启动端口号
    */
   def webVM(port: Int): Unit = {
-    new Thread(() => buildHttpServer(port)).start()
+    //    new Thread(() => buildHttpServer(port)).start()
+
+    val serverSocket = new ServerSocket(12100, 1024)
+    while (true) {
+      val socket = serverSocket.accept()
+      var writer = new BufferedWriter(new PrintWriter(socket.getOutputStream))
+      var body = "<h1>Hello World</h1>"
+      body = "HTTP/1.1 200 OK\r\nconnection: Close\r\ncontent-type: text/html\r\ncontent-length: " + body.length + "\r\n\r\n" + body
+      writer.write(body)
+      writer.flush()
+    }
   }
 
   /**
